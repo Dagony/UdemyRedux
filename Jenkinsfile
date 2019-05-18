@@ -14,7 +14,7 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage ('tests') {
+        stage('Test') {
             withEnv(["JEST_JUNIT_OUTPUT=./jest-test-results.xml"]) {
                 sh 'npm test -- --ci --testResultsProcessor="jest-junit"'
             }
