@@ -1,10 +1,10 @@
 {
     "name": "UdemyRedux",
     "jest": {
-        "verbose": true,
-        "reporters": [
-            "default",
-            "jest-junit"
-        ]
-    }
+        "verbose": true
+    },
+    "reporters": [
+        "default",
+        "jest-junit"
+    ]
 }
