@@ -14,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 withEnv(["JEST_JUNIT_OUTPUT=./jest-test-results.xml"]) {
+                    sh 'rm jest-test-result.xml'
                     sh 'npm test -- --ci'
                 }
                 junit 'jest-test-results.xml'
