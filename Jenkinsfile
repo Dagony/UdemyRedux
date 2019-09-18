@@ -13,10 +13,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withEnv(["JEST_JUNIT_OUTPUT=jest-test-results.xml"]) {
-                    sh 'npm test -- --ci'
+                script {
+                  sh 'npm run test'
                 }
-                junit 'jest-test-results.xml'
+            }
+            post {
+                always {
+                    junit 'output/coverage/junit/junit.xml'
+                }
             }
         }
         stage('Deliver') {
